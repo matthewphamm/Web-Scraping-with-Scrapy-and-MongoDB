@@ -7,7 +7,7 @@ from dataclasses import dataclass
 import scrapy
 
 @dataclass
-class BooksItem(scrapy.item):
+class BooksItem(scrapy.Item):
     url = scrapy.Field()
     title = scrapy.Field()
     price = scrapy.Field()
