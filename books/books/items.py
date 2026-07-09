@@ -4,10 +4,10 @@
 # https://docs.scrapy.org/en/latest/topics/items.html
 
 from dataclasses import dataclass
-
+import scrapy
 
 @dataclass
-class BooksItem:
-    # define the fields for your item here like:
-    # name: str | None = None
-    pass
+class BooksItem(scrapy.item):
+    url = scrapy.Field()
+    title = scrapy.Field()
+    price = scrapy.Field()
