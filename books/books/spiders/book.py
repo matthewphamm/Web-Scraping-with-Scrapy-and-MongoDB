@@ -21,4 +21,11 @@ class BookSpider(scrapy.Spider):
             self.logger.info(
                 f"Navigating to next page with URL {next_page_url}."
             )
-            yield scrapy.Request(url=next_page_url, callback=self.parse)
+            yield scrapy.Request(
+                url=next_page_url, 
+                callback=self.parse,
+                errback=self.log_error
+                )
+
+    def log_error(self, failure):
+        self.logger.error(repr(failure))
